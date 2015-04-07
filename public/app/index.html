@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="delphi">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Delphi Picks</title>
+	<!-- build:remove -->
+	<link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+	<!-- /build -->
+	<!-- build:template
+	<%= styles %>
+	/build -->
+	<!-- build:css /css/site.min.css -->
+	<link href="/css/site.css" rel="stylesheet" />
+	<!-- /build -->
+</head>
+<body ng-cloak>
+	<div class="container" ng-view></div>
+     <!-- build:remove -->
+	<script src="/lib/angular/angular.min.js"></script>
+	<script src="/lib/angular-route/angular-route.min.js"></script>
+	<script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script src="/lib/socket.io-client/socket.io.js"></script>
+	<!-- /build -->
+	<!-- build:template
+	<%= scripts %>
+	/build -->
+	<!-- build:js /app/delphi.min.js -->
+	<script src="/app/app.js"></script>
+	<script src="/app/infrastructure/unauthorizedHttpInterceptor.js"></script>
+	<script src="/app/navigation/delphi-nav.js"></script>
+	<script src="/app/tournament/tournamentService.js"></script>
+	<script src="/app/tournament/tournament.js"></script>
+	<script src="/app/round/roundService.js"></script>
+	<script src="/app/round/round.js"></script>
+	<script src="/app/game/gameService.js"></script>
+	<script src="/app/game/game.js"></script>
+	<script src="/app/game/delphi-game.js"></script>
+	<!-- /build -->
+</body>
+</html>

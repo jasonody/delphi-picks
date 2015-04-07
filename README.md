@@ -1,2 +1,5 @@
 # delphi-picks
-Play pickem' with your friends!
+
+A Facebook app for playing pickem' with your friends. 
+
+Built on the MEAN stack.

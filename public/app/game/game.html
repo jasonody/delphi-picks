@@ -1,0 +1,11 @@
+<delphi-nav></delphi-nav>
+<div>
+	<div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+		<delphi-game ng-repeat="game in games" 
+					 game="game" can-draw="canDraw"
+					 pick-home="updatePick(game, 1)"
+					 pick-draw="updatePick(game, 3)"
+					 pick-away="updatePick(game, 2)">
+		</delphi-game>
+	</div>
+</div>

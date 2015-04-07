@@ -1,0 +1,10 @@
+<delphi-nav></delphi-nav>
+<div>
+	<div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+		<button ng-repeat="round in rounds"
+			ng-click="goToGames(round)" 
+			class="btn btn-default btn-lg btn-block {{getIsCurrentCss(round)}}">
+			{{round.name}}
+		</button>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+{
+  "name": "delphi-picks",
+  "version": "0.1.0",
+  "description": "Play pickem' with your friends!",
+  "main": "server.js",
+	"private": true,
+  "engines": {
+    "node": "0.10.x"
+  },
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jasonody/delphi-picks.git"
+	},
+	"author": "Jason Ody",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jasonody/delphi-picks/issues"
+	},
+	"homepage": "https://github.com/jasonody/delphi-picks",
+  "dependencies": {
+    "async": "^0.9.0",
+    "body-parser": "^1.4.3",
+    "cheerio": "^0.17.0",
+    "cookie-parser": "^1.3.2",
+    "express": "^4.4.1",
+    "express-session": "^1.6.1",
+    "mongodb": "^1.4.7",
+    "passport": "^0.2.0",
+    "passport-facebook": "^1.0.3",
+    "request": "^2.39.0",
+    "socket.io": "^1.0.4"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^0.5.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-csslint": "^0.3.1",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.6",
+    "grunt-htmlhint": "^0.4.1",
+    "grunt-ng-annotate": "^0.3.0",
+    "grunt-nodemon": "^0.2.1",
+    "grunt-processhtml": "^0.3.3"
+  }
+}

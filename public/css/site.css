@@ -1,0 +1,30 @@
+/*UI Bootstrap for Angular.js (http://angular-ui.github.io/bootstrap/) */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/* CSS rule for using ng-cloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none;
+}
+
+body {
+	margin-top: 10px;
+}
+
+.btn-group + .btn-group {
+	margin-top: 5px;
+}
+
+.btn-game-sm {
+	width: 120px;
+	height: 70px;
+	font-size: 10px;
+	word-wrap: normal;
+}
+
+.btn-game-lg {
+	width: 180px;
+}
+
+.btn-game-bold {
+	font-weight: 800;
+}
