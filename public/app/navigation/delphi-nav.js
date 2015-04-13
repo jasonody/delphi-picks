@@ -1,5 +1,7 @@
 (function () {
 	"use strict";
+	
+	//http://stackoverflow.com/questions/16325557/dynamic-links-in-twitter-bootstrap-navbar-in-angularjs
 
 	var app = angular.module("delphi");
 	app.directive("delphiNav", function () {
@@ -54,7 +56,7 @@
 			links.push(roundLink);
 
 			tournamentService.getAllForSeason(season)
-			.then(function (data) {
+			.success(function (data) {
 
 				var selectedTournament = filter.call(data.tournaments, function (item) {
 
@@ -76,7 +78,7 @@
 			links.push(gameLink);
 
 			roundService.getAllForTournament(season, tournament)
-			.then(function (data) {
+			.success(function (data) {
 
 				var selectedRound = filter.call(data.rounds, function (item) {
 
@@ -94,5 +96,4 @@
 		return links;
 	};
 
-} ());
-//http://stackoverflow.com/questions/16325557/dynamic-links-in-twitter-bootstrap-navbar-in-angularjs
+}());

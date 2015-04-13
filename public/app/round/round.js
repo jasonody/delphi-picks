@@ -8,7 +8,7 @@
 		var tournament = $routeParams.tournament;
 
 		roundService.getAllForTournament(season, tournament)
-		.then(function (data) {
+		.success(function (data) {
 
 			//check if forwarding to current round's games
 			if ($location.search().forward) {
@@ -45,4 +45,4 @@
 		};
 	});
 
-} ());
+}());

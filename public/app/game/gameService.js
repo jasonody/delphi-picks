@@ -19,41 +19,37 @@
 
 		var getAllForRound = function (season, tournament, round) {
 
-			var deferred = $q.defer();
 			var uri = "/api/games/" + season + "/" + tournament + "/" + round;
 
-			$http.get(uri)
-			.success(function (data) {
+			return $http.get(uri, {
+				transformResponse: $http.defaults.transformResponse.concat([
+					function (data, headersGetter) {
+						
+						var map = Array.prototype.map;
+						var filter = Array.prototype.filter;
 
-				var map = Array.prototype.map;
-				var filter = Array.prototype.filter;
+						var games = map.call(data.games, function (game) {
 
-				var games = map.call(data.games, function (game) {
+							var gamePick = filter.call(data.picks, function (pick) {
 
-					var gamePick = filter.call(data.picks, function (pick) {
+								return pick.game === game.game;
+							});
 
-						return pick.game === game.game;
-					});
+							game.pick = 0;
+							if (gamePick.length > 0) {
+								game.pick = gamePick[0].pick;
+							}
 
-					game.pick = 0;
-					if (gamePick.length > 0) {
-						game.pick = gamePick[0].pick;
+							return game;
+						});
+
+						return {
+							canDraw: data.canDraw,
+							games: games
+						};
 					}
-
-					return game;
-				});
-
-				deferred.resolve({
-					canDraw: data.canDraw,
-					games: games
-				});
-			})
-			.error(function (data, status) {
-
-				deferred.reject(data);
+				])
 			});
-
-			return deferred.promise;
 		};
 
 		var updatePick = function (season, tournament, round, game, pick) {
@@ -61,28 +57,25 @@
 			var deferred = $q.defer();
 			var uri = "/api/picks/" + season + "/" + tournament + "/" + round + "/" + game;
 			var payload = { "pick": pick };
-
-			$http.post(uri, payload)
-			.success(function (data, status) {
-
-				if (status === 403) {
-					deferred.reject({
-						status: status,
-						data: data
-					});
+			
+			return $http.post(uri, payload)
+			.then(function (response) {
+			
+				var status = "";
+				
+				if (response.status === 204) {
+					status = "OK";
+				}	else if (response.status === 403) {
+					status = "GAME_STARTED";
 				} else {
-					deferred.resolve(data);
+					status = "ERROR";
 				}
-			})
-			.error(function (data, status) {
-
-				deferred.reject({
-					status: status,
-					data: data
-				});
+				
+				return { 
+					message: response.data,
+					status: status
+				};
 			});
-
-			return deferred.promise;
 		};
 
 		return {
@@ -92,4 +85,4 @@
 		};
 	});
 
-} ());
+}());

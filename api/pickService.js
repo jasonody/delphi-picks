@@ -26,7 +26,7 @@
 
 								if (err) {
 									console.dir(err);
-									res.send(500, err.message);
+									res.send(500, "Oops, something went wrong.");
 								} else {
 									sqlapiClient.updatePick({
 										user: user,
@@ -65,4 +65,4 @@
 		return selectedGame[0];
 	};
 
-} (module.exports));
+}(module.exports));

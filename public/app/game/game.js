@@ -16,50 +16,39 @@
 			game.pick = value;
 
 			gameService.updatePick(season, tournament, round, game.game, value)
-			.then(function (data, status) {
-				//do nothing
-			}, function (data) {
-
-				game.pick = previousPick;
-
-				if (data.status === 403) {
-					alert(data.data);
-
+			.then(function (response) {
+				
+				if (response.status === "OK") {
+					//notify of pick update
+				} else {
+					game.pick = previousPick;
+					
+					alert(response.message);
+				}
+				
+				if (response.status === "GAME_STARTED") {
 					$route.reload();
 				}
 			});
 		};
 
 		gameService.getAllForRound(season, tournament, round)
-		.then(function (data) {
+		.success(function (data) {
 
 			$scope.games = data.games;
 			$scope.canDraw = data.canDraw;
 
+			//Retrieve lastest data for round every 5 minutes
 			$interval(function () {
 				
 				gameService.getAllForRound(season, tournament, round)
-				.then(function (data) {
+				.success(function (data) {
 
 					$scope.games = data.games;
 				});
 			}, 5 * 60 * 1000);
 		});	
 	});
-
-	var getAllGamesForRound = function (season, tournament, round, $scope, 
-		gameService, $timeout) {
-
-		gameService.getAllForRound(season, tournament, round)
-		.then(function (data) {
-
-			$scope.games = data.games;
-			$scope.canDraw = data.canDraw;
-
-			$timeout(getAllGamesForRound(season, tournament, round, $scope, gameService, 
-				$timeout), 1000);
-		});
-	};
 
 	var findGame = function (games, gameId) {
 
@@ -73,4 +62,4 @@
 		return filteredGames[0];
 	};
 
-} ());
+}());

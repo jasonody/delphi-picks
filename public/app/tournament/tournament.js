@@ -7,7 +7,7 @@
 		var season = $routeParams.season;
 
 		tournamentService.getAllForSeason(season)
-		.then(function (data) {
+		.success(function (data) {
 
 			$scope.tournaments = data.tournaments;
 		});
@@ -20,4 +20,4 @@
 		};
 	});
 
-} ());
+}());
