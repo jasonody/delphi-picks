@@ -118,8 +118,8 @@
 						'<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />\n' +
 						'<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap-theme.min.css" rel="stylesheet" />',
 						scripts:
-						'<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>\n' +
-						'<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular-route.min.js"></script>\n' +
+						'<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>\n' +
+						'<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>\n' +
 						'<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap.js"></script>\n' +
 						'<script src="//cdn.socket.io/socket.io-1.0.4.js"></script>'
 					}
