@@ -1,8 +1,8 @@
 (function () {
 	"use strict";
 
-	var app = angular.module("delphi");
-	app.directive("delphiGame", function () {
+	angular.module("delphi")
+	.directive("delphiGame", function () {
 
 		var getCssClasses = function (game, value, canDraw) {
 
@@ -71,12 +71,13 @@
 				pickDraw: "&",
 				pickAway: "&"
 			},
-			controller: function ($scope) {
+			controller: function () {
 
-				$scope.getCssClasses = getCssClasses;
-				$scope.getScore = getScore;
-			}
+				this.getCssClasses = getCssClasses;
+				this.getScore = getScore;
+			},
+			controllerAs: "delphiGameVm"
 		};
 	});
 
-} ());
+}());

@@ -1,8 +1,8 @@
 (function () {
 	"use strict";
 
-	var module = angular.module("delphi");
-	module.factory("tournamentService", function ($http) {
+	angular.module("delphi")
+	.factory("tournamentService", function ($http) {
 
 		var getAllForSeason = function (season) {
 

@@ -1,8 +1,8 @@
 (function () {
 	"use strict";
 
-	var app = angular.module("delphi");
-	app.factory("roundService", function ($http) {
+	angular.module("delphi")
+	.factory("roundService", function ($http) {
 
 		var getAllForTournament = function (season, tournament) {
 

@@ -1,9 +1,10 @@
 (function () {
 	"use strict";
 
-	var app = angular.module("delphi");
-	app.controller("RoundController", function ($scope, $routeParams, $location, roundService) {
+	angular.module("delphi")
+	.controller("RoundController", function ($routeParams, $location, roundService) {
 
+		var self = this;
 		var season = $routeParams.season;
 		var tournament = $routeParams.tournament;
 
@@ -24,17 +25,17 @@
 					$location.path(uri);
 				}
 			} else {
-				$scope.rounds = data.rounds.reverse();
+				self.rounds = data.rounds.reverse();
 			}
 		});
 
-		$scope.goToGames = function (round) {
+		self.goToGames = function (round) {
 
 			var uri = "/" + season + "/" + tournament + "/" + round.round;
 			$location.path(uri);
 		};
 
-		$scope.getIsCurrentCss = function (round) {
+		self.getIsCurrentCss = function (round) {
 
 			var css = "";
 			if (round.isCurrent) {

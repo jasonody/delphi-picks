@@ -20,17 +20,19 @@
 			restrict: "E",
 			replace: true,
 			templateUrl: "/app/navigation/delphi-nav.html",
-			controller: function ($scope, $routeParams, tournamentService, roundService) {
+			controller: function ($routeParams, tournamentService, roundService) {
 
-				$scope.links = getLinks($routeParams, tournamentService, roundService);
-				$scope.getCssClasses = getCssClasses;
+				var self = this;
+				self.links = getLinks($routeParams, tournamentService, roundService);
+				self.getCssClasses = getCssClasses;
 
-				$scope.isCollapsed = true;
-				$scope.toggleCollapsed = function () {
+				self.isCollapsed = true;
+				self.toggleCollapsed = function () {
 
-					$scope.isCollapsed = !$scope.isCollapsed;
+					self.isCollapsed = !self.isCollapsed;
 				};
-			}
+			},
+			controllerAs: "navVm"
 		};
 	});
 

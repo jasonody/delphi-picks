@@ -1,18 +1,19 @@
 (function () {
 	"use strict";
 
-	var app = angular.module("delphi");
-	app.controller("TournamentController", function ($scope, $rootScope, $routeParams, $location, tournamentService) {
+	angular.module("delphi")
+	.controller("TournamentController", function ($routeParams, $location, tournamentService) {
 
+		var self = this;
 		var season = $routeParams.season;
 
 		tournamentService.getAllForSeason(season)
 		.success(function (data) {
 
-			$scope.tournaments = data.tournaments;
+			self.tournaments = data.tournaments;
 		});
 
-		$scope.goToGames = function (tournament) {
+		self.goToGames = function (tournament) {
 
 			var uri = "/" + season + "/" + tournament.id;
 			$location.search("forward"); //add query string param

@@ -1,8 +1,8 @@
 (function () {
 	"use strict";
 
-	var app = angular.module("delphi");
-	app.factory("gameService", function ($q, $http) {
+	angular.module("delphi")
+	.factory("gameService", function ($q, $http) {
 
 		var socket = null;
 

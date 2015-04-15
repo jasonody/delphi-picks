@@ -1,8 +1,8 @@
 <delphi-nav></delphi-nav>
 <div>
 	<div class="well" style="max-width: 400px; margin: 0 auto 10px;">
-		<button ng-repeat="tournament in tournaments"
-			ng-click="goToGames(tournament)" 
+		<button ng-repeat="tournament in vm.tournaments"
+			ng-click="vm.goToGames(tournament)" 
 			class="btn btn-default btn-lg btn-block">
 			{{tournament.name}}
 		</button>

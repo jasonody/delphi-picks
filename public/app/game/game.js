@@ -1,16 +1,16 @@
 (function () {
 	"use strict";
 
-	var app = angular.module("delphi");
-	app.controller("GameController", function ($scope, $routeParams, $route, gameService,
-		$interval) {
+	angular.module("delphi")
+	.controller("GameController", function ($routeParams, $route, gameService, $interval) {
 
+		var self = this;
 		var season = $routeParams.season;
 		var tournament = $routeParams.tournament;
 		var round = $routeParams.round;
 		var room = season + "-" + tournament + "-" + round;
 
-		$scope.updatePick = function (game, value) {
+		self.updatePick = function (game, value) {
 
 			var previousPick = game.pick;
 			game.pick = value;
@@ -35,8 +35,8 @@
 		gameService.getAllForRound(season, tournament, round)
 		.success(function (data) {
 
-			$scope.games = data.games;
-			$scope.canDraw = data.canDraw;
+			self.games = data.games;
+			self.canDraw = data.canDraw;
 
 			//Retrieve lastest data for round every 5 minutes
 			$interval(function () {
@@ -44,7 +44,7 @@
 				gameService.getAllForRound(season, tournament, round)
 				.success(function (data) {
 
-					$scope.games = data.games;
+					self.games = data.games;
 				});
 			}, 5 * 60 * 1000);
 		});	

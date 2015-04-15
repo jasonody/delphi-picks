@@ -1,8 +1,8 @@
 (function () {
 	"use strict";
 
-	var app = angular.module("delphi");
-	app.factory("unauthorizedHttpInterceptor", function ($q, $window) {
+	angular.module("delphi")
+	.factory("unauthorizedHttpInterceptor", function ($q, $window) {
 
 		var response = function (response) {
 
@@ -28,4 +28,4 @@
 		};
 	});
 
-} ());
+}());
