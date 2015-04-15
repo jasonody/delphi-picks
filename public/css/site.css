@@ -10,15 +10,21 @@ body {
 	margin-top: 10px;
 }
 
+.well-sm {
+	max-width: 400px; 
+	margin: 0 auto 10px;
+}
+
 .btn-group + .btn-group {
 	margin-top: 5px;
 }
 
 .btn-game-sm {
-	width: 120px;
+	width: 127px;
 	height: 70px;
 	font-size: 10px;
 	word-wrap: normal;
+	padding: 1px 6px;
 }
 
 .btn-game-lg {
