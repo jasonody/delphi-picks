@@ -4,48 +4,6 @@
 	angular.module("delphi")
 	.directive("delphiGame", function () {
 
-		var getCssClasses = function (game, value, canDraw) {
-
-			var classes = [];
-
-			//Button size
-			if (canDraw) {
-				classes.push("btn-game-sm");
-			} else {
-				classes.push("btn-game-lg");
-			}
-
-			//Hide "Draw" button if cannot draw
-			if (!canDraw && value === 3) {
-				classes.push("hide");
-			}
-
-			//Depressed selected button
-			if (game.pick === value) {
-				classes.push("active");
-			}
-
-			//Set background color of button
-			if (game.hasStarted && game.pick === value) {
-				if (game.pick === game.result) {
-					classes.push("btn-success");
-				} else {
-					classes.push("btn-danger");
-				}
-			} else {
-				classes.push("btn-default");
-			}
-
-			//Highlight correct button
-			if (game.result === value) {
-				classes.push("btn-game-bold");
-			}
-
-			var out = classes.join(" ");
-
-			return out;
-		};
-
 		var getScore = function (game) {
 
 			var score = "";
@@ -73,10 +31,27 @@
 			},
 			controller: function () {
 
-				this.getCssClasses = getCssClasses;
-				this.getScore = getScore;
+				var vm = this;
+				
+				vm.getScore = getScore;
+				
+				vm.styles = function (game, value, canDraw) {
+					
+					return {
+						'btn': true,
+						'btn-lg': true,
+						'btn-game-sm': canDraw,
+						'btn-game-lg': !canDraw,
+						'hide': (!canDraw && value === 3),
+						'active': (game.pick === value),
+						'btn-success': (game.hasStarted && game.pick === value && game.pick === game.result),
+						'btn-danger': (game.hasStarted && game.pick === value && game.pick !== game.result),
+						'btn-default': (!game.hasStarted && game.pick === value) || (!game.hasStarted && game.pick !== value) || (game.hasStarted && game.pick !== value),
+						'btn-game-bold': (game.result === value)
+					};
+				};
 			},
-			controllerAs: "delphiGameVm"
+			controllerAs: "vm"
 		};
 	});
 
