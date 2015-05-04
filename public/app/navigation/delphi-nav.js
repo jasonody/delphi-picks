@@ -6,16 +6,6 @@
 	var app = angular.module("delphi");
 	app.directive("delphiNav", function () {
 
-		var getCssClasses = function (link) {
-
-			var cssClasses = "";
-			if (link.isActive) {
-				cssClasses = "active";
-			}
-
-			return cssClasses;
-		};
-
 		return {
 			restrict: "E",
 			replace: true,
@@ -24,7 +14,6 @@
 
 				var self = this;
 				self.links = getLinks($routeParams, tournamentService, roundService);
-				self.getCssClasses = getCssClasses;
 
 				self.isCollapsed = true;
 				self.toggleCollapsed = function () {
